@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <span class="title">
+        <h1>{% block title %} {{ detail.fname }} {{ detail.lname }}{% endblock %}</h1>
+    </span>
+    <div class="content">
+            <div class="detail">
+                <p><b>#{{ detail.id }}</b></p>
+                <b>
+                    <p class="name">{{ detail.fname }} {{ detail.lname }}</p>
+                </b>
+                <p>{{ detail.email }}</p>
+                <p>{{ detail.phone }}</p>
+                <p>{{detail.address}}</p>
+                </div>
+            </div>
+    </div>
+{% endblock %}

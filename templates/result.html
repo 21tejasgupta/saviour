@@ -1,0 +1,38 @@
+<!-- HTML page to display the text returned from flask function -->
+<!--<html>
+
+<head>
+
+<body>
+    <h1>{{ name }}</h1>
+    <h2>>{{data}}</h2>
+</body>
+
+</html>-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title">{% block title %} Required Details {% endblock %}</h1>
+    <div class="content">
+            <div class="detail">
+                <h1>Missing person details</h1>
+                <p><b>#{{ detail.id }}</b></p>
+                <b>
+                    <p class="name">{{ detail.fname }} {{ detail.lname }}</p>
+                </b>
+                <p>{{ detail.email }}</p>
+                <p>{{detail.address}}</p>
+                <p>{{detail.phone}}</p>
+                <p><h1>Person to contact</h1></p>
+                <b>
+                    <p class="name">{{ detail.fname2 }} {{ detail.lname2 }}</p>
+                </b>
+                <p>{{ detail.email2 }}</p>
+                <p>{{detail.address2}}</p>
+                <p>{{detail.phone2}}</p>
+                
+                </div>
+            </div>
+    </div>
+{% endblock %}
