@@ -1,3 +1,5 @@
+/* --------------------- contact.css ---------------------*/
+
 *{
     margin:0;
     padding:0;
@@ -50,7 +52,6 @@
    .contact .information .individual .icon{
     min-width: 60px;
     height: 60px;
-   /* background-color: white;*/
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -70,8 +71,6 @@
     font-weight: 300;
    }
    .form{
-    /*background-color:white;*/
-    /*background-image:url('images/banner.png');*/
     padding:20px;
     width:40%;
    }
