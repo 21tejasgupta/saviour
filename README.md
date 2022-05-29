@@ -1,4 +1,3 @@
-
 # SAVIOUR
 
 ## If you see a need, take the lead.
@@ -82,5 +81,6 @@
 
 ## Useful Links
 
-* [Demo video](https://www.google.com)
-* [Saviour Details Document](https://www.google.com)
+* [Demo video](https://drive.google.com/file/d/1hdMp1DY0FRxd062OWSULcCc77pwtmcgD/view)
+* [Detail and design Document](https://docs.google.com/document/d/1VfX5LxQr_sFDFkRsbgbvuoo6VlAcsK6yymxgDGiTBq4/edit#)
+
