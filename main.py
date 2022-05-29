@@ -1,14 +1,21 @@
+from tkinter import Entry
 from flask import Flask,render_template,request,redirect,url_for
 import cv2
 from simplefacerec import SimpleFacerec
 import subprocess as sp
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import base64
+import os
+import re
+from PIL import Image
+from io import StringIO, BytesIO
+
 
 
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///tb_users.db'
-#initil=alize database
+#initilalize database
 DB=SQLAlchemy(app)
 
 #create db model
@@ -24,54 +31,32 @@ class User(DB.Model):
     address2=DB.Column(DB.String(200),nullable=False)
     phone2=DB.Column(DB.Integer,nullable=False)
     email2=DB.Column(DB.String(200),nullable=False)
-    #date_created=db.Column(db.DateTime,default=datetime.utcnow)
-    #create function to return string when we add something
+
     def _repr_(self):
         return f"User('{self.id}','{self.fname},'{self.lname}','{self.address}','{self.phone}','{self.email}',,'{self.fname2},'{self.lname2}','{self.address2}','{self.phone2}','{self.email2}')"
 
    
 details=User.query.all()
 
-# Encode faces from a folder
-# sfr = SimpleFacerec()
-# sfr.load_encoding_images("imagespy/")
-
-# # Load Camera
-# cap = cv2.VideoCapture(0)
-
-
-# while True:
-#     ret, frame = cap.read()
-
-#     # Detect Faces
-#     face_locations, face_names = sfr.detect_known_faces(frame)
-#     for face_loc, name in zip(face_locations, face_names):
-#         y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
-
-#         cv2.putText(frame, name,(x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
-#         cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 200), 4)
-
-#     cv2.imshow("Frame", frame)
-
-#     key = cv2.waitKey(1)
-#     if key == 27:
-#         break
-
-# cap.release()
-# cv2.destroyAllWindows()
-
 @app.route('/')
-@app.route('/home')
+@app.route('/home',methods=['GET','POST'])
 def home():
-    if request.method == 'POST':
-        
-        scan()
     return render_template('main_index.html')
 
-@app.route('/index.php')
-def phpindex():
-    out=sp.run(["php","index.php"],stdout=sp.PIPE)
-    return out.stdout
+@app.route('/storeImage',methods=['POST','GET'])
+def storeImage():
+    #get last database Entry
+    last_entry=User.query.order_by(User.id.desc()).first()
+    last_fname=last_entry.fname
+    last_lname=last_entry.lname
+    last_name=last_fname+" "+last_lname
+
+    image_b64 = request.values['imageBase64']
+    image_data = re.sub('^data:image/.+;base64,', '', image_b64)
+    image_data = base64.b64decode(str(image_data))
+    image_PIL = Image.open(BytesIO(image_data))
+    image_save = image_PIL.save('imagespy/'+last_name+'.png')
+    return render_template('main_index.html')
 
 @app.route('/scan')
 def scan():
@@ -107,18 +92,10 @@ def scan():
 
     return render_template('result.html',detail=detail)
 
-#@app.route('/register')
-#def register():
- #   return render_template('registration.html')
 
-
-@app.route('/capture')
+@app.route('/capture',methods=['POST','GET'])
 def capture():
-    return render_template('index.php')
-
-@app.route('/displayDB')
-def displayDB():
-    return render_template('function.php')
+    return render_template('capture.html')
 
 @app.route('/register',methods=['POST','GET'])
 def register():
@@ -153,20 +130,6 @@ def register():
 @app.route('/result')
 def result():
    return render_template('result.html',details=details)
-
-
-# @app.route('/result')
-# def result():
-#     #temp=face_names[0].split(" ")
-#     details=Details.query.all()
-    
-#     return render_template('result.html',details=details)
-
-
-#@app.route('/<int:student_id>/')
-#def student(student_id):
- #   student = Student.query.get_or_404(student_id)
- #   return render_template('student.html', student=student)
 
     
 if __name__=="__main__":
