@@ -97,7 +97,7 @@
    }
    .form .inputbox input[type="submit"]{
     width:100px;
-    background-color: rgb(13, 152, 207);
+    background-color:rgba(18, 69, 141, 0.75);
     color:white;
     margin:10px;
     padding: 10px;

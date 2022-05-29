@@ -333,12 +333,14 @@ button {
 }
 
 .head_top .logo img {
-     width:280px;
-     height:100px;
+     width:270px;
+     height:210px;
+     margin-top: 0;
+     margin-left: 0;
 }
 
 .banner_main {
-     padding: 90px 0 190px 0;
+     /*padding: 90px 0 190px 0;*/
 }
 
 .text-bg {
@@ -349,11 +351,12 @@ button {
      padding-right: 141px;
 }
 
-.text-bg h1 {
+.text-bg h2 {
      color: #fff;
-     font-size: 65px;
-     line-height: 65px;
+     font-size: 40px;
+     line-height: 60px;
      font-weight: bold;
+     padding:10px;
 }
 
 .text-bg p {
@@ -361,6 +364,7 @@ button {
      font-size: 20px;
      line-height: 28px;
      padding: 30px 0;
+     margin-right: 20px;
 }
 
 .text-bg a {
