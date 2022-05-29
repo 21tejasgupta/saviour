@@ -7,7 +7,7 @@
 ## Features and  Interfaces
 
 1. Landing Page
-    * Seemless and minimalistic landing page with required routes in navbar and a 'read more' option
+    * Seamless and minimalistic landing page with required routes in navbar and a 'read more' option
 
     ![alt text](https://github.com/21tejasgupta/saviour/blob/main/static/images/ss1.png "Logo Title")
 
@@ -47,7 +47,7 @@
 
     * On clicking next, we will capture image of the person through webcam, which will be saved to a folder in our system, with the image name as the name given in registration form.
 
-    ![alt text](https://github.com/21tejasgupta/saviour/blob/main/static/images/ss9.png "Logo Title")
+    ![alt text](https://github.com/21tejasgupta/saviour/blob/main/static/images/ss91.png "Logo Title")
 
     * Then the user will be redirected to the home page
 
