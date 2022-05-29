@@ -17,15 +17,25 @@
             }
         }
     </script>
+    <style>
+        *{
+            background-color:#d9e6f8;
+        }
+    </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 
 <body>
     <section class="full">
         <div class="para">
-            <h2>Contact Us</h2>
-            <p>Always humans, never bots. We have the sharpest and friendliest support team. If you have
+            <img src="https://1.bp.blogspot.com/-COpQWfWKqyc/YI1lbCIig5I/AAAAAAAACEc/q45NwMpWHFY8zvBfAJB_MqBE8zZqt7jugCLcBGAsYHQ/s600/contact-us.gif"><br><br><br><br>
+            <h2 style="font-family:'Trebuchet MS', sans-serif; font-size:50px;color:rgba(18, 69, 141, 0.75);">Contact Us</h2><br>
+            <p style="font-family:'Trebuchet MS', sans-serif;">Always humans, never bots. We have the sharpest and friendliest support team. If you have
                 any queries a member of staff will always be happy to help. Feel free to contact us through call or email
                 and we will be sure to get back to you as soon as possible.</p>
+                <br>
         </div>
         <div class="contact">
             <div class="information">
@@ -67,6 +77,11 @@ here"></textarea>
                     <div class="inputbox">
                         <input type="submit" name="submit" id="submit" value="Submit">
                     </div>
+                    <script>
+                        $("#submit").click(function() {
+                           alert("Thank you! The Form has been Submitted. We will connect soon.");
+                        });
+                     </script>
                 </form>
             </div>
         </div>
